@@ -189,3 +189,13 @@ for (const [name, v] of Object.entries(modes)) {
     }
   });
 }
+
+// Proof strip: angka metrik harus berasal dari frontmatter studi-kasus (content-fiktif.md).
+test('proof strip: angka metrik sama dengan frontmatter', () => {
+  const strip = home.body.match(/<ul class="proof">[\s\S]*?<\/ul>/)?.[0] ?? '';
+  const all = cases.flatMap((c) => c.metrik);
+  for (const label of ['Toko aktif', 'Skor aksesibilitas']) {
+    const m = all.find((x) => x.label === label);
+    assert.ok(m && strip.includes(`<strong>${m.nilai}</strong>`), `proof strip tidak memuat ${label}`);
+  }
+});

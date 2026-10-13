@@ -21,7 +21,7 @@ Tim operasional Logistik Bahari (perusahaan fiktif) merekap posisi dan status ke
 Data posisi dan status digabung dalam satu basis data, ditampilkan di dasbor dengan filter per rute dan per sopir. Peringatan keterlambatan dihitung di sisi server dan tampil sebagai daftar prioritas.
 
 ## Hasil
-Rekap harian turun dari 3 jam menjadi 10 menit untuk 340 kendaraan, dan ketepatan jadwal naik 12%.
+Rekap harian yang dulu memakan separuh pagi kini selesai dalam sekejap untuk seluruh armada, dan ketepatan jadwal meningkat. Angka terukur ada pada ringkasan metrik di atas.
 
 ## Pelajaran
 Daftar prioritas yang pendek lebih berguna bagi operator daripada peta yang penuh titik.

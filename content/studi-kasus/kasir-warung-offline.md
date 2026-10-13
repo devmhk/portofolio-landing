@@ -21,7 +21,7 @@ Pemilik warung kecil kehilangan catatan penjualan saat sinyal hilang. Tim Warung
 Transaksi disimpan lebih dulu di perangkat (IndexedDB), lalu disinkronkan di latar belakang dengan antrean yang aman diulang. Konflik diselesaikan dengan aturan sederhana: catatan terbaru per transaksi menang.
 
 ## Hasil
-Waktu input transaksi turun 38% setelah alur layar dipangkas menjadi tiga ketukan. Pada 1.200 toko aktif, hanya 0,3% transaksi yang gagal tersimpan.
+Waktu input transaksi turun setelah alur layar dipangkas menjadi tiga ketukan. Di seluruh toko aktif, hanya sebagian kecil transaksi yang gagal tersimpan. Angka terukur ada pada ringkasan metrik di atas.
 
 ## Pelajaran
 Mulai dari kondisi terburuk (tanpa sinyal) membuat desain sinkronisasi lebih sederhana daripada menambalnya belakangan.

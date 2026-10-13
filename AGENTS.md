@@ -7,7 +7,7 @@ PRD dan handoff: `docs/prd/REQ-20261013-portofolio-landing/`. Arsitektur: `docs/
 ## Stack
 - Astro `^7.3.8` (`output: 'static'`, `build.format: 'file'`), dikunci `package-lock.json`.
 - Build: `node:24-alpine`. Penyaji: `nginxinc/nginx-unprivileged:1.28-alpine`, port container 8080.
-- Tes (belum ada, sub-issue berikutnya): Playwright + axe-core + Lighthouse, target `test` di `.docker/Dockerfile`.
+- Tes: `node:test` (`tests/static.test.mjs`) lewat target `test` di `.docker/Dockerfile`; Playwright + axe-core + Lighthouse belum ada (sub-issue berikutnya).
 - Toolchain tidak dipasang di host; semua lewat Docker.
 
 ## Run
@@ -19,7 +19,7 @@ docker compose -f compose.dev.yaml down
 ```
 
 ## Test
-Lihat `tests/README.md` (tabel AC1-AC10 → alat → perintah). Saat ini `npm test` hanya placeholder.
+Lihat `tests/README.md` (tabel AC1-AC10 → alat → perintah). `npm test` = `node --test tests/static.test.mjs` (butuh `BASE_URL`; service `test` mengisinya ke `http://app:8080`).
 
 ## Layout
 `content/` (Markdown per koleksi), `src/` (layouts, pages, components, data, styles), `public/`, `.docker/`, `tests/`, `docs/`. Rincian di `docs/architecture.md`.

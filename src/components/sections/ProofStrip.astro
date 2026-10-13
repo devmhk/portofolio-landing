@@ -1,10 +1,22 @@
 ---
-import { proofStrip } from '../../data/site';
+import { getCollection } from 'astro:content';
+import { pengalaman, proofMetrik } from '../../data/site';
+const kasus = await getCollection('studi-kasus');
+const metrik = proofMetrik.map(([cari, label]) => {
+  const m = kasus.flatMap((k) => k.data.metrik).find((x) => x.label === cari);
+  if (!m) throw new Error(`Metrik "${cari}" tidak ada di frontmatter studi-kasus`);
+  return { nilai: m.nilai, label };
+});
+const proof = [
+  { nilai: pengalaman, label: 'pengalaman' },
+  { nilai: String(kasus.length), label: 'studi kasus' },
+  ...metrik,
+];
 ---
 <section id="bukti" data-section="bukti" aria-label="Ringkasan angka">
   <div class="wrap" data-reveal>
     <ul class="proof">
-      {proofStrip.map((p) => <li><strong>{p.nilai}</strong><span>{p.label}</span></li>)}
+      {proof.map((p) => <li><strong>{p.nilai}</strong><span>{p.label}</span></li>)}
     </ul>
   </div>
 </section>

@@ -1,6 +1,6 @@
 # Tes
 
-Status: belum ada tes otomatis; `npm test` masih placeholder. Tabel di bawah adalah rencana dari `docs/architecture.md` (diimplementasikan sub-issue berikutnya). Jalankan lewat Docker: `docker compose -f compose.dev.yaml --profile test run --rm test`. Laporan di `reports/` (gitignored).
+Status: `npm test` = `node --test tests/static.test.mjs` (cek statis tanpa browser: AC2, AC3, AC4, AC6, AC7, AC8, AC9, AC10; butuh `BASE_URL`, diisi service `test`). Cek berbasis browser di tabel (Playwright, axe, Lighthouse) masih rencana dari `docs/architecture.md`. Jalankan lewat Docker: `docker compose -f compose.dev.yaml --profile test run --rm test`. Laporan di `reports/` (gitignored).
 
 | AC | Alat | Perintah / bukti |
 |---|---|---|

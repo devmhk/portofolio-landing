@@ -16,7 +16,7 @@ EXPOSE 8080
 HEALTHCHECK --interval=10s --timeout=3s --retries=5 CMD wget -qO- http://127.0.0.1:8080/ >/dev/null || exit 1
 
 # Target uji. Versi image HARUS sama dengan versi @playwright/test di package-lock.json
-# (dipasang di sub-issue tes; saat ini `npm test` masih placeholder).
+# (dipasang di sub-issue tes; saat ini `npm test` menjalankan tests/static.test.mjs dengan node:test).
 FROM mcr.microsoft.com/playwright:v1.64.0-noble AS test
 WORKDIR /app
 COPY package.json package-lock.json ./

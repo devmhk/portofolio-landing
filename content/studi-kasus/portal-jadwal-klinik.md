@@ -21,7 +21,7 @@ Klinik Sehat Mandiri (organisasi fiktif) ingin pasien lansia dan pengguna ponsel
 Halaman dibuat statis dengan JavaScript minimal, label formulir yang jelas, dan navigasi penuh dengan papan ketik. Alur diuji otomatis dengan Playwright dan pemeriksaan aksesibilitas.
 
 ## Hasil
-Skor aksesibilitas 98, ukuran halaman 86 KB, dan pendaftaran lewat portal naik 45%.
+Skor aksesibilitas tinggi, halaman tetap ringan, dan pendaftaran lewat portal meningkat. Angka terukur ada pada ringkasan metrik di atas.
 
 ## Pelajaran
 Aksesibilitas yang diuji otomatis sejak awal mencegah regresi yang sulit dilacak.

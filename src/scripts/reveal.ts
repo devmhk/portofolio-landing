@@ -17,3 +17,9 @@ if (reduced || !('IntersectionObserver' in window)) {
   );
   items.forEach((el) => io.observe(el));
 }
+
+// Formulir Kontak hanya tampilan: umumkan hasil ke pembaca layar saat tombol ditekan.
+const status = document.querySelector<HTMLElement>('[data-form-status]');
+document.querySelector('#kontak .btn')?.addEventListener('click', () => {
+  if (status) status.textContent = 'Formulir ini hanya tampilan: pesan tidak dikirim atau disimpan.';
+});

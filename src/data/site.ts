@@ -7,11 +7,12 @@ export const persona = {
 
 export const cta = { label: 'Ajak bicara proyekmu', href: '#kontak' };
 
-export const proofStrip = [
-  { nilai: '6 tahun', label: 'pengalaman' },
-  { nilai: '3', label: 'studi kasus' },
-  { nilai: '1.200', label: 'toko memakai kasir buatan saya' },
-  { nilai: '98', label: 'skor aksesibilitas tertinggi' },
+export const pengalaman = '6 tahun';
+
+// Metrik proof strip dibaca dari frontmatter koleksi studi-kasus (content-fiktif.md): [label metrik, label tampilan].
+export const proofMetrik: [string, string][] = [
+  ['Toko aktif', 'toko memakai kasir buatan saya'],
+  ['Skor aksesibilitas', 'skor aksesibilitas tertinggi'],
 ];
 
 export const keahlian = [
