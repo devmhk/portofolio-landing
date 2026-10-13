@@ -1,0 +1,28 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+      target: runtime
+    ports:
+      - "127.0.0.1:${APP_PORT:-18130}:8080" # AC8: TIDAK PERNAH tanpa 127.0.0.1
+    mem_limit: 128m
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/"]
+      interval: 10s
+      retries: 5
+  test:
+    profiles: ["test"]
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+      target: test
+    environment:
+      BASE_URL: "http://app:8080"
+    depends_on:
+      app:
+        condition: service_healthy
+    volumes:
+      - ./reports:/app/reports
+    shm_size: 1gb
+    mem_limit: 1536m
