@@ -1,0 +1,16 @@
+---
+import { persona } from '../../data/site';
+---
+<section id="kontak" data-section="kontak" aria-labelledby="kontak-judul">
+  <div class="wrap" data-reveal>
+    <h2 id="kontak-judul">Kontak</h2>
+    <p class="lead">Ceritakan proyekmu. Atau tulis langsung ke <a href={`mailto:${persona.email}`}>{persona.email}</a>.</p>
+    <form class="form" autocomplete="off">
+      <label>Nama <input type="text" /></label>
+      <label>Email <input type="email" /></label>
+      <label>Pesan <textarea rows="4"></textarea></label>
+      <button type="button" class="btn">Kirim pesan</button>
+      <p class="form-note" role="status" aria-live="polite">Formulir ini hanya tampilan: pesan tidak dikirim atau disimpan.</p>
+    </form>
+  </div>
+</section>

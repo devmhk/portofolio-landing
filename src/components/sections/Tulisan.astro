@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+const tulisan = (await getCollection('tulisan')).sort((a, b) => +b.data.tanggal - +a.data.tanggal);
+const fmt = new Intl.DateTimeFormat('id-ID', { dateStyle: 'long', timeZone: 'UTC' });
+---
+<section id="tulisan" data-section="tulisan" aria-labelledby="tulisan-judul">
+  <div class="wrap" data-reveal>
+    <h2 id="tulisan-judul">Tulisan</h2>
+    <ul class="posts">
+      {tulisan.map(({ data: d }) => (
+        <li>
+          <h3>{d.title}</h3>
+          <p class="meta"><time datetime={d.tanggal.toISOString().slice(0, 10)}>{fmt.format(d.tanggal)}</time></p>
+          <p>{d.ringkasan}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

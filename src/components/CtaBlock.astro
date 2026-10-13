@@ -1,0 +1,9 @@
+---
+import { cta } from '../data/site';
+interface Props { text?: string; }
+const { text } = Astro.props;
+---
+<div class="cta-block">
+  {text && <p>{text}</p>}
+  <a class="btn" href={cta.href}>{cta.label}</a>
+</div>

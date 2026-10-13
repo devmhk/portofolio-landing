@@ -1,0 +1,16 @@
+---
+import { keahlian } from '../../data/site';
+---
+<section id="keahlian" data-section="keahlian" aria-labelledby="keahlian-judul">
+  <div class="wrap" data-reveal>
+    <h2 id="keahlian-judul">Keahlian</h2>
+    <ul class="grid">
+      {keahlian.map((k) => (
+        <li class="card">
+          <h3>{k.kelompok}</h3>
+          <ul class="tags">{k.item.map((i) => <li>{i}</li>)}</ul>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

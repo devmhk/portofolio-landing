@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import CtaBlock from '../CtaBlock.astro';
+const kasus = (await getCollection('studi-kasus')).sort((a, b) => a.data.order - b.data.order);
+---
+<section id="studi-kasus" data-section="studi-kasus" aria-labelledby="studi-judul">
+  <div class="wrap" data-reveal>
+    <h2 id="studi-judul">Studi kasus</h2>
+    <p class="lead">Tiga proyek fiktif, dari masalah sampai hasil yang terukur.</p>
+    <ul class="grid">
+      {kasus.map(({ data: d }) => (
+        <li>
+          <article class="card">
+            <p class="meta">{d.peran} · {d.tahun}</p>
+            <h3>{d.title}</h3>
+            <p>{d.ringkasan}</p>
+            <dl class="metrics">
+              {d.metrik.map((m) => <div><dt>{m.label}</dt><dd>{m.nilai}</dd></div>)}
+            </dl>
+            <a class="more" href={`/studi-kasus/${d.slug}`}>Baca studi kasus<span class="sr-only">: {d.title}</span> →</a>
+          </article>
+        </li>
+      ))}
+    </ul>
+    <CtaBlock text="Punya masalah serupa? Mari bahas." />
+  </div>
+</section>

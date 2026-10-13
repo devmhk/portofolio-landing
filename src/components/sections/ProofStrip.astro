@@ -1,0 +1,10 @@
+---
+import { proofStrip } from '../../data/site';
+---
+<section id="bukti" data-section="bukti" aria-label="Ringkasan angka">
+  <div class="wrap" data-reveal>
+    <ul class="proof">
+      {proofStrip.map((p) => <li><strong>{p.nilai}</strong><span>{p.label}</span></li>)}
+    </ul>
+  </div>
+</section>

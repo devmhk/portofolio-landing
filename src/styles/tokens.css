@@ -1,0 +1,38 @@
+/* Token warna: 3 warna (accent, warm, mint) + 2 netral (bg, fg). Rasio kontras: docs/architecture.md §6. */
+:root,
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f7f6f2;
+  --fg: #1b1d22;
+  --accent: #1d4ed8;
+  --warm: #9a4a06;
+  --mint: #0b6b62;
+  --muted: color-mix(in srgb, var(--fg) 72%, var(--bg));
+  --line: color-mix(in srgb, var(--fg) 16%, var(--bg));
+  --surface: color-mix(in srgb, var(--fg) 5%, var(--bg));
+  --on-accent: var(--bg);
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0f1217;
+  --fg: #e8e9ec;
+  --accent: #8ab4ff;
+  --warm: #f0a35e;
+  --mint: #4fd1c5;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg: #0f1217;
+    --fg: #e8e9ec;
+    --accent: #8ab4ff;
+    --warm: #f0a35e;
+    --mint: #4fd1c5;
+  }
+}
+:root {
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --radius: 10px;
+  --max: 68rem;
+}

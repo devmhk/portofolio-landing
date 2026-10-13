@@ -1,7 +1,7 @@
 # Arsitektur portofolio-landing
 
 ## 1. Ringkasan
-Situs statis Astro → `dist/` → nginx-unprivileged di Docker, hanya `127.0.0.1:18130`. Tanpa backend, DB, API, atau layanan eksternal. Status: kerangka (scaffold); section dan konten penuh dikerjakan sub-issue berikutnya.
+Situs statis Astro → `dist/` → nginx-unprivileged di Docker, hanya `127.0.0.1:18130`. Tanpa backend, DB, API, atau layanan eksternal. Status: 9 section, tema light/dark, dan animasi reveal sudah ada; tes otomatis menyusul.
 
 ## 2. Alur data
 ```mermaid
@@ -52,7 +52,16 @@ Ditolak: HTML/CSS/JS murni + skrip build (pipeline Markdown dan routing buatan s
 - Section: `id` + `data-section`, urutan hero, bukti, studi-kasus, keahlian, cara-kerja, tulisan, testimoni, kontak, footer. Blok CTA berada di dalam section studi-kasus.
 
 ## 6. Tema, animasi, aksesibilitas (rencana)
-- Tema: skrip inline membaca `localStorage['theme']` dengan fallback `prefers-color-scheme`, mengeset `data-theme`; toggle `<button aria-pressed>`. Token warna light/dark di `tokens.css` (maks 3 warna + 2 netral); tabel token dan rasio kontras ditambahkan saat token ditetapkan.
+- Tema: skrip inline membaca `localStorage['theme']` dengan fallback `prefers-color-scheme`, mengeset `data-theme`; toggle `<button aria-pressed>`. Token warna light/dark di `tokens.css` (maks 3 warna + 2 netral); rasio kontras (dihitung dengan rumus WCAG, 2026-10-13):
+
+| Pasangan | Light | Dark |
+|---|---|---|
+| fg / bg | 15,59 | 15,46 |
+| muted / bg (surface) | 6,41 (5,82) | 8,34 (7,53) |
+| accent / bg (surface) | 6,20 (5,63) | 8,98 (8,11) |
+| warm / bg (surface) | 5,79 (5,25) | 9,03 (8,15) |
+| mint / bg (surface) | 5,90 (5,35) | 10,06 (9,08) |
+| teks tombol (bg) / accent | 6,20 | 8,98 |
 - Animasi: konten terlihat secara default; state tersembunyi hanya lewat kelas `.js`; `prefers-reduced-motion` mematikan transisi; hanya `opacity`/`transform`.
 - Form kontak: input tanpa atribut `name`, hanya tampilan, pesan di region `aria-live`.
 

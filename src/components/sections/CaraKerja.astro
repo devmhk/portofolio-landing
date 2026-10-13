@@ -1,0 +1,11 @@
+---
+import { caraKerja } from '../../data/site';
+---
+<section id="cara-kerja" data-section="cara-kerja" aria-labelledby="cara-judul">
+  <div class="wrap" data-reveal>
+    <h2 id="cara-judul">Cara kerja</h2>
+    <ol class="grid steps">
+      {caraKerja.map((c) => <li class="card"><h3>{c.judul}</h3><p>{c.isi}</p></li>)}
+    </ol>
+  </div>
+</section>

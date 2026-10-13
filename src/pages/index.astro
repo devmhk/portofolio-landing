@@ -1,16 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { persona } from '../data/site';
+import Hero from '../components/sections/Hero.astro';
+import ProofStrip from '../components/sections/ProofStrip.astro';
+import StudiKasus from '../components/sections/StudiKasus.astro';
+import Keahlian from '../components/sections/Keahlian.astro';
+import CaraKerja from '../components/sections/CaraKerja.astro';
+import Tulisan from '../components/sections/Tulisan.astro';
+import Testimoni from '../components/sections/Testimoni.astro';
+import Kontak from '../components/sections/Kontak.astro';
+import Footer from '../components/sections/Footer.astro';
 ---
-<BaseLayout title="Dita Ayu Prameswari — Software Engineer (placeholder)">
-  <main>
-    <section id="hero" data-section="hero"><h1>Dita Ayu Prameswari</h1><p>Kerangka awal. Konten menyusul.</p></section>
-    <section id="bukti" data-section="bukti"></section>
-    <section id="studi-kasus" data-section="studi-kasus"></section>
-    <section id="keahlian" data-section="keahlian"></section>
-    <section id="cara-kerja" data-section="cara-kerja"></section>
-    <section id="tulisan" data-section="tulisan"></section>
-    <section id="testimoni" data-section="testimoni"></section>
-    <section id="kontak" data-section="kontak"></section>
+<BaseLayout title={`${persona.nama} — ${persona.peran}`}>
+  <main id="main" tabindex="-1">
+    <Hero />
+    <ProofStrip />
+    <StudiKasus />
+    <Keahlian />
+    <CaraKerja />
+    <Tulisan />
+    <Testimoni />
+    <Kontak />
   </main>
-  <footer id="footer" data-section="footer"></footer>
+  <Footer />
 </BaseLayout>

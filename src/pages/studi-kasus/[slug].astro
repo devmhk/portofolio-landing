@@ -13,17 +13,17 @@ const { Content } = await render(entry);
 const d = entry.data;
 ---
 <BaseLayout title={`${d.title} — ${persona.nama}`}>
-  <main>
+  <main id="main" tabindex="-1" class="detail">
     <p><a href="/">← Kembali ke halaman utama</a></p>
     <article>
       <h1>{d.title}</h1>
-      <p>{d.ringkasan}</p>
-      <p>{d.peran} · {d.tahun}</p>
-      <ul aria-label="Teknologi">
+      <p class="lead">{d.ringkasan}</p>
+      <p class="meta">{d.peran} · {d.tahun}</p>
+      <ul class="tags" aria-label="Teknologi">
         {d.stack.map((s) => <li>{s}</li>)}
       </ul>
-      <dl>
-        {d.metrik.map((m) => (<><dt>{m.label}</dt><dd>{m.nilai}</dd></>))}
+      <dl class="metrics">
+        {d.metrik.map((m) => (<div><dt>{m.label}</dt><dd>{m.nilai}</dd></div>))}
       </dl>
       <Content />
     </article>

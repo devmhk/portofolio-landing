@@ -1,0 +1,11 @@
+---
+import { persona, cta } from '../../data/site';
+---
+<section id="hero" data-section="hero" aria-labelledby="hero-judul">
+  <div class="wrap" data-reveal>
+    <p class="eyebrow">{persona.peran}</p>
+    <h1 id="hero-judul">{persona.nama}</h1>
+    <p class="lead">{persona.tagline}</p>
+    <a class="btn" href={cta.href}>{cta.label}</a>
+  </div>
+</section>
