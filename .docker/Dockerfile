@@ -5,6 +5,7 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 FROM deps AS build
+ENV ASTRO_TELEMETRY_DISABLED=1
 COPY . .
 RUN npm run build
 

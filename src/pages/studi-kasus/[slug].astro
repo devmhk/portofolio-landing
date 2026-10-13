@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { persona } from '../../data/site';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('studi-kasus');
+  return entries.map((entry) => ({ params: { slug: entry.data.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+---
+<BaseLayout title={`${d.title} — ${persona.nama}`}>
+  <main>
+    <p><a href="/">← Kembali ke halaman utama</a></p>
+    <article>
+      <h1>{d.title}</h1>
+      <p>{d.ringkasan}</p>
+      <p>{d.peran} · {d.tahun}</p>
+      <ul aria-label="Teknologi">
+        {d.stack.map((s) => <li>{s}</li>)}
+      </ul>
+      <dl>
+        {d.metrik.map((m) => (<><dt>{m.label}</dt><dd>{m.nilai}</dd></>))}
+      </dl>
+      <Content />
+    </article>
+    <p><a href="/">← Kembali ke halaman utama</a></p>
+  </main>
+</BaseLayout>
